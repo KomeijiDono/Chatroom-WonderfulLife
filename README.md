@@ -162,7 +162,7 @@ Jsp_wonderfulLife/
 -- 该脚本会自动：
 -- 1. 创建 wonderfulLife 数据库（如不存在）
 -- 2. 创建 t_userInfo、t_chat、t_chatroom_config 三张表
--- 3. 插入默认管理员账号 (admin / admin123)
+-- 3. 插入默认管理员账号 (admin / admin)
 -- 4. 插入默认聊天室配置 (自动模式 09:00-18:00)
 ```
 
