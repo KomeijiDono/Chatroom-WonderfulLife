@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Jsp_wonderfulLife</display-name>
+
+  <!-- 欢迎页面：访问根路径时跳转到 index.jsp（其内部重定向到 login.jsp） -->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <!-- ==================== 过滤器配置 ==================== -->
+  <!-- 1. 字符编码过滤器：所有请求均经过 UTF-8 编码 -->
+  <filter>
+    <filter-name>CharsetFilter</filter-name>
+    <filter-class>com.edu.seiryo.wonderfulLife.filter.CharsetFilter</filter-class>
+  </filter>
+  <!-- 2. 登录检查过滤器：拦截聊天页面，未登录用户跳转到登录页 -->
+  <filter>
+    <filter-name>CheckLoginFilter</filter-name>
+    <filter-class>com.edu.seiryo.wonderfulLife.filter.CheckLoginFilter</filter-class>
+  </filter>
+  <!-- 3. 聊天室开放检查过滤器：非开放时间普通用户被强制下线 -->
+  <filter>
+    <filter-name>ChatroomOpenFilter</filter-name>
+    <filter-class>com.edu.seiryo.wonderfulLife.filter.ChatroomOpenFilter</filter-class>
+  </filter>
+
+  <!-- ==================== 过滤器映射 ==================== -->
+  <!-- 编码过滤器：拦截所有请求 -->
+  <filter-mapping>
+    <filter-name>CharsetFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!-- 登录检查：拦截聊天主页和所有 JSP 页面 -->
+  <filter-mapping>
+    <filter-name>CheckLoginFilter</filter-name>
+    <url-pattern>/chat.jsp</url-pattern>
+    <url-pattern>/jsp/*</url-pattern>
+  </filter-mapping>
+  <!-- 聊天室开放检查：拦截聊天页面、消息接口、轮询接口和上传接口 -->
+  <filter-mapping>
+    <filter-name>ChatroomOpenFilter</filter-name>
+    <url-pattern>/chat.jsp</url-pattern>
+    <url-pattern>/jsp/chatInfo.jsp</url-pattern>
+    <url-pattern>/jsp/send.jsp</url-pattern>
+    <url-pattern>/sendMessage</url-pattern>
+    <url-pattern>/uploadImage</url-pattern>
+    <url-pattern>/getChatInfo</url-pattern>
+    <url-pattern>/getOnlineUsers</url-pattern>
+  </filter-mapping>
+</web-app>
