@@ -194,7 +194,7 @@ private static final String PASSWORD = "123456";  // 改为你的数据库密码
 
 使用默认管理员账号登录：
 - 账号：`admin`
-- 密码：`admin123`
+- 密码：`admin`
 
 ---
 
@@ -238,3 +238,18 @@ private static final String PASSWORD = "123456";  // 改为你的数据库密码
 - **前端轮询**使用 jQuery 的 `$.get()` 定时拉取数据，非 WebSocket 实时推送
 - **聊天室开放控制**支持自动模式（按时间段）和手动模式（管理员开关）
 - **管理员操作**不受聊天室开放状态限制，`ChatroomOpenFilter` 中对管理员直接放行
+
+---
+
+## 开源协议
+
+本项目采用 [MIT License](LICENSE) 进行许可。
+
+---
+
+## 作者
+
+- **KomeijiDono**
+- 项目地址：https://github.com/KomeijiDono/Chatroom-WonderfulLife
+
+如有问题或建议，欢迎提交 Issue 或 Pull Request。
